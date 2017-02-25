@@ -22,7 +22,7 @@ fs.readdir(testFolder, (err, _files) => {
     .map(e => parseInt(e))
     .sort((a,b) => a > b ? 1 : -1)
     .map(e => `${e}.txt`)
-  _.chunk(files,20).forEach(chunk => {
+  _.chunk(files,50).forEach(chunk => {
     let fileName = `${testFolder}aggre/${PREFIX}_${pad(fileNum(chunk[0]),4)}_${pad(fileNum(chunk[chunk.length-1]),4)}.txt`
     mergeFile(fileName, chunk.map(e => testFolder+e))
   })
